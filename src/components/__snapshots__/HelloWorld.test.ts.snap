@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Hellow world component 1`] = `
+"<div data-v-e17ea971=\\"\\" class=\\"hello\\">
+  <h1 data-v-e17ea971=\\"\\">Test message</h1>
+  <p data-v-e17ea971=\\"\\"> For a guide and recipes on how to configure / customize this project,<br data-v-e17ea971=\\"\\"> check out the <a href=\\"https://cli.vuejs.org\\" target=\\"_blank\\" rel=\\"noopener\\" data-v-e17ea971=\\"\\">vue-cli documentation</a>. </p>
+  <h3 data-v-e17ea971=\\"\\">Installed CLI Plugins</h3>
+  <ul data-v-e17ea971=\\"\\">
+    <li data-v-e17ea971=\\"\\"><a href=\\"https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript\\" target=\\"_blank\\" rel=\\"noopener\\" data-v-e17ea971=\\"\\">typescript</a></li>
+  </ul>
+  <h3 data-v-e17ea971=\\"\\">Essential Links</h3>
+  <ul data-v-e17ea971=\\"\\">
+    <li data-v-e17ea971=\\"\\"><a href=\\"https://vuejs.org\\" target=\\"_blank\\" rel=\\"noopener\\" data-v-e17ea971=\\"\\">Core Docs</a></li>
+    <li data-v-e17ea971=\\"\\"><a href=\\"https://forum.vuejs.org\\" target=\\"_blank\\" rel=\\"noopener\\" data-v-e17ea971=\\"\\">Forum</a></li>
+    <li data-v-e17ea971=\\"\\"><a href=\\"https://chat.vuejs.org\\" target=\\"_blank\\" rel=\\"noopener\\" data-v-e17ea971=\\"\\">Community Chat</a></li>
+    <li data-v-e17ea971=\\"\\"><a href=\\"https://twitter.com/vuejs\\" target=\\"_blank\\" rel=\\"noopener\\" data-v-e17ea971=\\"\\">Twitter</a></li>
+    <li data-v-e17ea971=\\"\\"><a href=\\"https://news.vuejs.org\\" target=\\"_blank\\" rel=\\"noopener\\" data-v-e17ea971=\\"\\">News</a></li>
+  </ul>
+  <h3 data-v-e17ea971=\\"\\">Ecosystem</h3>
+  <ul data-v-e17ea971=\\"\\">
+    <li data-v-e17ea971=\\"\\"><a href=\\"https://router.vuejs.org\\" target=\\"_blank\\" rel=\\"noopener\\" data-v-e17ea971=\\"\\">vue-router</a></li>
+    <li data-v-e17ea971=\\"\\"><a href=\\"https://vuex.vuejs.org\\" target=\\"_blank\\" rel=\\"noopener\\" data-v-e17ea971=\\"\\">vuex</a></li>
+    <li data-v-e17ea971=\\"\\"><a href=\\"https://github.com/vuejs/vue-devtools#vue-devtools\\" target=\\"_blank\\" rel=\\"noopener\\" data-v-e17ea971=\\"\\">vue-devtools</a></li>
+    <li data-v-e17ea971=\\"\\"><a href=\\"https://vue-loader.vuejs.org\\" target=\\"_blank\\" rel=\\"noopener\\" data-v-e17ea971=\\"\\">vue-loader</a></li>
+    <li data-v-e17ea971=\\"\\"><a href=\\"https://github.com/vuejs/awesome-vue\\" target=\\"_blank\\" rel=\\"noopener\\" data-v-e17ea971=\\"\\">awesome-vue</a></li>
+  </ul>
+</div>"
+`;
