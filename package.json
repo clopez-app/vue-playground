@@ -9,7 +9,7 @@
     "coverage": "vitest run --coverage",
     "pre-commit": "npm run lint && pretty-quick --staged",
     "prepare": "husky install",
-    "test": "vitest"
+    "test": "vitest run"
   },
   "dependencies": {
     "core-js": "^3.8.3",
