@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`About container 1`] = `
+"<h1>About</h1>
+<div class=\\"intro\\">
+  <p> This playground was made to refresh and learn the configuration and usage of Vue in a proyect. </p>
+</div>"
+`;
