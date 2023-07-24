@@ -1,7 +1,7 @@
 import HelloWorld from './HelloWorld.vue';
 import { mount } from '@vue/test-utils';
 
-test('Hellow world component', () => {
+test('Hello world component', () => {
   expect(HelloWorld).toBeTruthy();
 
   const wrapper = mount(HelloWorld, {
