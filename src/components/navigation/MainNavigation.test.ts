@@ -1,7 +1,7 @@
 import MainNavigation from './MainNavigation.vue';
 import { mount } from '@vue/test-utils';
 import { createRouter, createWebHistory } from 'vue-router';
-import { routes } from '../../routes';
+import { routes } from '@/routes';
 
 test('Main Navigation works', () => {
   expect(MainNavigation).toBeTruthy();

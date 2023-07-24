@@ -1,11 +1,24 @@
 <template>
   <div id="router">
-    <router-link to="/">Home</router-link>
-    <router-link to="/about">About</router-link>
+    <router-link
+      v-for="(route, index) in routesList"
+      :key="index"
+      :to="route.path"
+      >{{ route.name }}</router-link
+    >
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { routes } from '@/routes';
+import { DefineComponent } from 'vue';
+
+const routesList = routes as {
+  path: string;
+  component: DefineComponent<{}, {}, any>;
+  name: string;
+}[];
+</script>
 
 <style scoped>
 #router {
