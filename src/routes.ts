@@ -1,9 +1,19 @@
-import HelloWorld from './components/HelloWorld.vue';
-import AboutContainer from './components/about/AboutContainer.vue';
-import ContactContainer from './components/contact/ContactContainer.vue';
+import { defineAsyncComponent } from 'vue';
+
+const HelloWorldAsync = defineAsyncComponent(
+  () => import('./components/HelloWorld.vue')
+);
+
+const AboutContainerAsync = defineAsyncComponent(
+  () => import('./components/about/AboutContainer.vue')
+);
+
+const ContactContainerAsync = defineAsyncComponent(
+  () => import('./components/contact/ContactContainer.vue')
+);
 
 export const routes = [
-  { path: '/', component: HelloWorld, name: 'Home' },
-  { path: '/about', component: AboutContainer, name: 'About' },
-  { path: '/contact', component: ContactContainer, name: 'Contact' },
+  { path: '/', component: HelloWorldAsync, name: 'Home' },
+  { path: '/about', component: AboutContainerAsync, name: 'About' },
+  { path: '/contact', component: ContactContainerAsync, name: 'Contact' },
 ];
