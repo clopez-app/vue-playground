@@ -75,7 +75,7 @@
     </div>
 
     <div class="submit-button">
-      <input id="submit" type="submit" />
+      <input id="submit" type="submit" @click="load($event)" />
     </div>
   </form>
 
@@ -89,6 +89,7 @@
 <script setup lang="ts">
 import { Ref, ref } from 'vue';
 import { InputDynamicElement } from '../types';
+import { loadSnackbar } from '@/composables/SnackbarService';
 
 interface contact {
   name: string;
@@ -138,9 +139,14 @@ function addAreaOfExperience(event: Event): void {
     newTagInput.value = '';
   }
 }
+
+function load(event: Event) {
+  event.preventDefault();
+  loadSnackbar('Test', 'success', true);
+}
 </script>
 
-<style scoped>
+<style>
 form {
   max-width: 600px;
   padding-top: 10px;
