@@ -1,21 +1,19 @@
 <template>
   <div id="router">
-    <router-link
-      v-for="(route, index) in routesList"
-      :key="index"
-      :to="route.path"
-      >{{ route.name }}</router-link
-    >
+    <template v-for="(route, index) in routesList" :key="index">
+      <router-link v-if="route.path" :to="route.path">{{
+        route.name
+      }}</router-link>
+    </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import { routes } from '@/routes';
-import { DefineComponent } from 'vue';
+import { routes } from '../../routes';
 
 const routesList = routes as {
   path: string;
-  component: DefineComponent<{}, {}, any>;
+  component: () => Promise<typeof import('*.vue')>;
   name: string;
 }[];
 </script>
