@@ -101,7 +101,9 @@ import { storeToRefs } from 'pinia';
 
 const store = useAppStore();
 
-const { lastIndex, contacts } = storeToRefs(store);
+const { lastIndex } = storeToRefs(store);
+
+let contactId = lastIndex;
 
 const areasOfLearning = [
   'Programmer',
@@ -113,8 +115,6 @@ const areasOfLearning = [
   'Producer',
   'Quality assurance/tester',
 ];
-
-let contactId = lastIndex;
 
 const contactInfo: Ref<Contact> = ref({
   id: contactId.value,
