@@ -4,6 +4,7 @@ import { Contact } from '@/components/types';
 
 describe('Contact component', () => {
   const mockInfo: Contact = {
+    id: 1,
     name: 'Test',
     lastname: 'Tester',
     message: 'This is just a test',
