@@ -1,7 +1,13 @@
-import HelloWorld from './components/HelloWorld.vue';
-import AboutContainer from './components/about/AboutContainer.vue';
+const HelloWorldAsync = () => import('./components/HelloWorld.vue');
+
+const AboutContainerAsync = () =>
+  import('./components/about/AboutContainer.vue');
+
+const ContactContainerAsync = () =>
+  import('./components/contact/ContactContainer.vue');
 
 export const routes = [
-  { path: '/', component: HelloWorld },
-  { path: '/about', component: AboutContainer },
+  { path: '/', component: HelloWorldAsync, name: 'Home' },
+  { path: '/about', component: AboutContainerAsync, name: 'About' },
+  { path: '/contact', component: ContactContainerAsync, name: 'Contact' },
 ];
