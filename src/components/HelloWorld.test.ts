@@ -1,15 +1,17 @@
 import HelloWorld from './HelloWorld.vue';
 import { mount } from '@vue/test-utils';
 
-test('Hello world component', () => {
-  expect(HelloWorld).toBeTruthy();
+describe('Hello world component', () => {
+  test('renders correctly', () => {
+    expect(HelloWorld).toBeTruthy();
 
-  const wrapper = mount(HelloWorld, {
-    props: {
-      msg: 'Test message',
-    },
+    const wrapper = mount(HelloWorld, {
+      props: {
+        msg: 'Test message',
+      },
+    });
+
+    expect(wrapper.text()).toContain('Test message');
+    expect(wrapper.html()).toMatchSnapshot();
   });
-
-  expect(wrapper.text()).toContain('Test message');
-  expect(wrapper.html()).toMatchSnapshot();
 });

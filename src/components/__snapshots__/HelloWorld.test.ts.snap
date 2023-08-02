@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Hello world component 1`] = `
+exports[`Hello world component > renders correctly 1`] = `
 "<div data-v-e17ea971=\\"\\" class=\\"hello\\">
   <h1 data-v-e17ea971=\\"\\">Test message</h1>
   <p data-v-e17ea971=\\"\\"> For a guide and recipes on how to configure / customize this project,<br data-v-e17ea971=\\"\\"> check out the <a href=\\"https://cli.vuejs.org\\" target=\\"_blank\\" rel=\\"noopener\\" data-v-e17ea971=\\"\\">vue-cli documentation</a>. </p>

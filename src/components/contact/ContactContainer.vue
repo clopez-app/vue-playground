@@ -2,7 +2,12 @@
   <form id="contact-form">
     <div class="input-group">
       <label for="name">Name</label>
-      <input id="name" v-model="contactInfo.name" autocomplete="false" />
+      <input
+        id="name"
+        v-model="contactInfo.name"
+        autocomplete="false"
+        required
+      />
     </div>
     <div class="input-group">
       <label for="lastname">Lastname</label>
@@ -10,6 +15,7 @@
         id="lastname"
         v-model="contactInfo.lastname"
         autocomplete="false"
+        required
       />
     </div>
     <div class="input-group">
@@ -18,13 +24,14 @@
         id="currentRole"
         v-model="contactInfo.currentRole"
         autocomplete="false"
+        required
       />
     </div>
     <div class="input-group">
       <div>
         Choose which area do you want to learn: {{ contactInfo.areaSelected }}
       </div>
-      <select id="area" v-model="contactInfo.areaSelected">
+      <select id="area" v-model="contactInfo.areaSelected" required>
         <option disabled value="">Please select one</option>
         <option
           v-for="(area, index) in areasOfLearning"
@@ -75,31 +82,20 @@
     </div>
 
     <div class="submit-button">
-      <input id="submit" type="submit" @click="load($event)" />
+      <input
+        id="submit"
+        type="submit"
+        :disabled="formValid"
+        @click="loadMessage($event)"
+      />
     </div>
   </form>
-
-  <div class="preview">
-    <div>
-      {{ contactInfo }}
-    </div>
-  </div>
 </template>
 
 <script setup lang="ts">
-import { Ref, ref } from 'vue';
-import { InputDynamicElement } from '../types';
+import { Ref, ref, computed } from 'vue';
+import { Contact } from '@/components/types';
 import { loadSnackbar } from '@/composables/SnackbarService';
-
-interface contact {
-  name: string;
-  lastname: string;
-  message: string;
-  currentRole: string;
-  areaSelected: string;
-  experience: boolean;
-  areasOfExperience: InputDynamicElement[];
-}
 
 const areasOfLearning = [
   'Programmer',
@@ -112,12 +108,12 @@ const areasOfLearning = [
   'Quality assurance/tester',
 ];
 
-const contactInfo: Ref<contact> = ref({
+const contactInfo: Ref<Contact> = ref({
   name: '',
   lastname: '',
-  message: '',
   currentRole: '',
   areaSelected: '',
+  message: '',
   experience: false,
   areasOfExperience: [],
 });
@@ -125,6 +121,28 @@ const contactInfo: Ref<contact> = ref({
 let id = 1;
 
 const newTagInput = ref('');
+
+const formValid = computed(() => {
+  const { name, lastname, message, currentRole, areaSelected } =
+    contactInfo.value;
+  if (
+    !(
+      stringEmpty(name) ||
+      stringEmpty(lastname) ||
+      stringEmpty(message) ||
+      stringEmpty(currentRole) ||
+      stringEmpty(areaSelected)
+    )
+  ) {
+    return false;
+  } else {
+    return true;
+  }
+});
+
+function stringEmpty(value: string): boolean {
+  return value === '';
+}
 
 function addAreaOfExperience(event: Event): void {
   event.preventDefault();
@@ -140,7 +158,7 @@ function addAreaOfExperience(event: Event): void {
   }
 }
 
-function load(event: Event) {
+function loadMessage(event: Event) {
   event.preventDefault();
   loadSnackbar('Test', 'success', true);
 }

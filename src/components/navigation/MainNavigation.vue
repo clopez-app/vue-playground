@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { routes } from '../../routes';
+import { routes } from '@/routes';
 
 const routesList = routes as {
   path: string;
