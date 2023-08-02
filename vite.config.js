@@ -8,6 +8,9 @@ export default defineConfig({
     alias: {
       '@/': new URL('./src/', import.meta.url).pathname,
     },
+    coverage: {
+      provider: 'istanbul',
+    },
   },
   plugins: [vue()],
 });

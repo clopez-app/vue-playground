@@ -1,21 +1,24 @@
 import { VueWrapper, mount } from '@vue/test-utils';
 import ContactContainer from './ContactContainer.vue';
-import { Contact } from '@/components/types';
+import { createTestingPinia } from '@pinia/testing';
+import { mockInfoData } from '@/tests/mocks';
 
 describe('Contact component', () => {
-  const mockInfo: Contact = {
-    name: 'Test',
-    lastname: 'Tester',
-    message: 'This is just a test',
-    currentRole: 'Artist',
-    areaSelected: 'Programmer',
-    experience: false,
-    areasOfExperience: [],
-  };
   let component: VueWrapper<any, any>;
+  const mockInfo = mockInfoData;
 
   beforeEach(() => {
-    component = mount(ContactContainer);
+    component = mount(ContactContainer, {
+      global: {
+        plugins: [
+          createTestingPinia({
+            initialState: {
+              contacts: [],
+            },
+          }),
+        ],
+      },
+    });
   });
 
   test('Renders correctly', () => {

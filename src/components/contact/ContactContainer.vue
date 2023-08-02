@@ -96,6 +96,14 @@
 import { Ref, ref, computed } from 'vue';
 import { Contact } from '@/components/types';
 import { loadSnackbar } from '@/composables/SnackbarService';
+import { useAppStore } from '@/store/index';
+import { storeToRefs } from 'pinia';
+
+const store = useAppStore();
+
+const { lastIndex } = storeToRefs(store);
+
+let contactId = lastIndex;
 
 const areasOfLearning = [
   'Programmer',
@@ -109,6 +117,7 @@ const areasOfLearning = [
 ];
 
 const contactInfo: Ref<Contact> = ref({
+  id: contactId.value,
   name: '',
   lastname: '',
   currentRole: '',
@@ -118,7 +127,7 @@ const contactInfo: Ref<Contact> = ref({
   areasOfExperience: [],
 });
 
-let id = 1;
+let areaId = 1;
 
 const newTagInput = ref('');
 
@@ -148,19 +157,34 @@ function addAreaOfExperience(event: Event): void {
   event.preventDefault();
   if (newTagInput.value != '') {
     contactInfo.value.areasOfExperience.push({
-      id,
+      id: areaId,
       value: newTagInput.value,
       creationDate: new Date(),
       lastUpdate: new Date(),
     });
-    id++;
+    areaId++;
     newTagInput.value = '';
   }
 }
 
-function loadMessage(event: Event) {
+function loadMessage(event: Event): void {
   event.preventDefault();
+  store.addContact(contactInfo.value);
   loadSnackbar('Test', 'success', true);
+  resetContactInfo();
+}
+
+function resetContactInfo(): void {
+  contactInfo.value = {
+    id: contactId.value,
+    name: '',
+    lastname: '',
+    currentRole: '',
+    areaSelected: '',
+    message: '',
+    experience: false,
+    areasOfExperience: [],
+  };
 }
 </script>
 
